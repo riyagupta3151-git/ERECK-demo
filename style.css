@@ -1,0 +1,69 @@
+:root{
+  --paper:#F4F2FF; --ink:#1B1740; --muted:#5A5678; --violet:#4B2FF0; --coral:#FF6B5A; --lime:#C8F169; --white:#fff;
+  --tech:#4B2FF0; --cult:#D6336C; --sport:#16803C;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+
+/* sticky nav */
+.nav{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+  padding:.9rem clamp(1rem,5vw,3rem);background:rgba(244,242,255,.92);backdrop-filter:blur(8px);border-bottom:2px solid var(--ink)}
+.logo{font-weight:700;text-decoration:none}
+.nav nav{display:flex;gap:1.5rem}
+.nav nav a{text-decoration:none;font-weight:500}
+.nav nav a:hover{color:var(--violet)}
+
+/* hero */
+.hero{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;
+  padding:clamp(3rem,10vw,7rem) clamp(1rem,5vw,3rem);background:var(--violet);color:var(--white);border-bottom:2px solid var(--ink)}
+.hero h1{font-family:'Fraunces',Georgia,serif;font-weight:900;font-size:clamp(3.5rem,14vw,10rem);line-height:.9;letter-spacing:-.03em}
+.hero p{max-width:46ch;font-size:1.15rem}
+
+.btn{display:inline-block;font:inherit;font-weight:700;padding:.8rem 1.4rem;border:2px solid var(--ink);border-radius:8px;
+  background:var(--lime);color:var(--ink);cursor:pointer;text-decoration:none;box-shadow:4px 4px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.btn[disabled]{background:#e4e1f5;cursor:default;box-shadow:none;transform:none}
+
+/* events */
+.events,.about{padding:clamp(2.5rem,7vw,5rem) clamp(1rem,5vw,3rem);max-width:1200px;margin-inline:auto}
+.events-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:2rem}
+h2{font-family:'Fraunces',Georgia,serif;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.1}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{font:inherit;font-weight:500;padding:.45rem 1rem;border:2px solid var(--ink);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer}
+.chip.active{background:var(--ink);color:var(--white)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1.75rem}
+.card{display:flex;flex-direction:column;background:var(--white);border:2px solid var(--ink);border-radius:14px;overflow:hidden}
+.card[hidden]{display:none}
+.card img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;border-bottom:2px solid var(--ink);background:#ddd}
+.card-body{display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;padding:1.25rem;flex:1}
+.card h3{font-size:1.35rem;line-height:1.2}
+.meta{font-weight:500;color:var(--violet)}
+.desc{color:var(--muted);flex:1}
+.badge{font-size:.8rem;font-weight:700;color:var(--white);padding:.2rem .7rem;border-radius:999px}
+.badge.technical{background:var(--tech)}.badge.cultural{background:var(--cult)}.badge.sports{background:var(--sport)}
+.empty{text-align:center;color:var(--muted);padding:2rem}
+
+.about p{max-width:60ch;margin-top:1rem;color:var(--muted)}
+footer{padding:1.5rem;text-align:center;border-top:2px solid var(--ink);font-size:.9rem}
+
+/* modal */
+dialog{border:2px solid var(--ink);border-radius:14px;padding:0;width:min(92vw,460px);background:var(--white);color:var(--ink);box-shadow:8px 8px 0 var(--ink)}
+dialog::backdrop{background:rgba(27,23,64,.6)}
+dialog[open]{animation:pop .2s ease-out}
+@keyframes pop{from{transform:scale(.96);opacity:0}}
+dialog form,.success{display:flex;flex-direction:column;gap:.3rem;padding:1.75rem;position:relative}
+.success[hidden]{display:none}
+.modal-event{font-weight:700;color:var(--violet);margin-bottom:.5rem}
+label{font-weight:500;margin-top:.6rem}
+input,select{font:inherit;padding:.65rem .8rem;border:2px solid var(--ink);border-radius:8px;background:var(--white)}
+input[aria-invalid="true"],select[aria-invalid="true"]{border-color:#C62828}
+.error{color:#C62828;min-height:1.1em;font-size:.85rem}
+dialog .btn{margin-top:1rem;align-self:flex-start}
+.close{position:absolute;top:.6rem;right:.8rem;font-size:1.8rem;line-height:1;background:none;border:0;cursor:pointer;color:var(--ink)}
+
+@media (max-width:520px){.nav nav{gap:1rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}

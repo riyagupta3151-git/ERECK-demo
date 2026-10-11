@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pulse Collective | Club Events</title>
+  <meta name="description" content="Upcoming events from Pulse Collective: technical, cultural and sports. Register in seconds.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a href="#top" class="logo">Pulse Collective</a>
+    <nav aria-label="Main">
+      <a href="#events">Events</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <h1>Pulse<br>Collective</h1>
+      <p>The campus club for people who build, perform and compete. Three events are open this month, and seats are limited.</p>
+      <a class="btn" href="#events">See upcoming events</a>
+    </section>
+
+    <section id="events" class="events">
+      <div class="events-head">
+        <h2>Upcoming events</h2>
+        <div class="filters" role="group" aria-label="Filter events by category">
+          <button class="chip active" data-filter="all" aria-pressed="true">All</button>
+          <button class="chip" data-filter="Technical" aria-pressed="false">Technical</button>
+          <button class="chip" data-filter="Cultural" aria-pressed="false">Cultural</button>
+          <button class="chip" data-filter="Sports" aria-pressed="false">Sports</button>
+        </div>
+      </div>
+
+      <div class="grid" id="grid">
+        <article class="card" data-category="Technical" data-title="24-Hour Hackathon">
+          <img src="https://picsum.photos/seed/hackathon-code/640/420" alt="Students coding together at a hackathon" loading="lazy">
+          <div class="card-body">
+            <span class="badge technical">Technical</span>
+            <h3>24-Hour Hackathon</h3>
+            <p class="meta"><time datetime="2026-10-24T09:00">Sat, 24 Oct 2026, 9:00 AM</time></p>
+            <p class="desc">Teams of four build a working prototype overnight. Mentors on site.</p>
+            <button class="btn register" type="button">Register</button>
+          </div>
+        </article>
+
+        <article class="card" data-category="Cultural" data-title="Rang Utsav Cultural Night">
+          <img src="https://picsum.photos/seed/cultural-night/640/420" alt="Dancers performing on a lit stage" loading="lazy">
+          <div class="card-body">
+            <span class="badge cultural">Cultural</span>
+            <h3>Rang Utsav Cultural Night</h3>
+            <p class="meta"><time datetime="2026-10-30T18:30">Fri, 30 Oct 2026, 6:30 PM</time></p>
+            <p class="desc">Dance, music and theatre acts from across campus. Open stage for solo entries.</p>
+            <button class="btn register" type="button">Register</button>
+          </div>
+        </article>
+
+        <article class="card" data-category="Sports" data-title="Inter-Department Football Cup">
+          <img src="https://picsum.photos/seed/football-match/640/420" alt="Players competing in a football match" loading="lazy">
+          <div class="card-body">
+            <span class="badge sports">Sports</span>
+            <h3>Inter-Department Football Cup</h3>
+            <p class="meta"><time datetime="2026-11-07T08:00">Sat, 7 Nov 2026, 8:00 AM</time></p>
+            <p class="desc">Seven-a-side knockout. Each department fields one squad of ten.</p>
+            <button class="btn register" type="button">Register</button>
+          </div>
+        </article>
+      </div>
+      <p id="empty" class="empty" hidden>No events in this category yet. Check back soon.</p>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About the club</h2>
+      <p>Pulse Collective brings together students from every department. We run one technical, one cultural and one sports event each month, so there is always a way to join in.</p>
+    </section>
+  </main>
+
+  <footer><p>&copy; 2026 Pulse Collective</p></footer>
+
+  <dialog id="modal" aria-labelledby="modal-title">
+    <form id="reg-form" novalidate>
+      <button type="button" class="close" id="close" aria-label="Close registration form">&times;</button>
+      <h2 id="modal-title">Register</h2>
+      <p class="modal-event" id="modal-event"></p>
+
+      <label for="name">Full name</label>
+      <input id="name" name="name" type="text" autocomplete="name" required>
+      <small class="error" data-for="name"></small>
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="email" required>
+      <small class="error" data-for="email"></small>
+
+      <label for="phone">Phone (10 digits)</label>
+      <input id="phone" name="phone" type="tel" inputmode="numeric" required>
+      <small class="error" data-for="phone"></small>
+
+      <label for="year">Year of study</label>
+      <select id="year" name="year" required>
+        <option value="">Select year</option>
+        <option>1st year</option><option>2nd year</option><option>3rd year</option><option>4th year</option>
+      </select>
+      <small class="error" data-for="year"></small>
+
+      <button class="btn" type="submit">Confirm registration</button>
+    </form>
+
+    <div id="success" class="success" hidden>
+      <h2>You're registered</h2>
+      <p id="success-msg"></p>
+      <button class="btn" type="button" id="done">Done</button>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
